@@ -1,0 +1,132 @@
+- 
+    let topics = [
+        {name:"Головна", url:"#"},
+        {name:"Послуги", url:"#"},
+        {name:"Про Компанію", url:"#"},
+        {name:"Акції", url:"#"}, 
+        {name:"Партнери", url:"#"},
+        {name:"Відгуки", url:"#"}, 
+        {name:"Контакти", url:"#"}, 
+    ]
+
+mixin menu (items)
+    ul.menu_top.m-0
+        for item in items 
+            li 
+                a(href=item.url) #{item.name}
+
+- 
+    let plans = {
+        first:{
+            icon:"img/bike_yellow.png",
+            title:"Тур на велосипедах",
+            price:"335 грн*",
+            text:[
+                "Подорожуючи  на велосипеді, ви", 
+                "поринете в атмосферу мальовничих",
+                "гір, чарівнмх краєвидів та шалених",
+                "пригод."
+            ]
+        },
+        second:{
+            icon:"img/icon_island.png",
+            title:"Екскурсія на острів",
+            price:"500 грн*",
+            text:[
+                "Подорож на острів занурить Вас у",
+                "незабутнні пригоди. Неймовірна",
+                "краса  у будь-яку пору року ."
+            ]
+        },
+        third:{
+            icon:"img/person.png",
+            title:"Особливе замовлення",
+            price:"250 грн.*",
+            text:[
+                "Обираючи цю подорож, Ви самостійно",
+                "робите її незабутнбою та не схожою на",
+                "будь-які інші." 
+            ]
+        }
+    }
+
+mixin idea (items) 
+    figcaption 
+        img.mt-4.mb-4(src=items.icon)
+        .cardcontent
+            .topic.text-center 
+                h3=items.title 
+            .price 
+                p
+                    b=items.price
+            .plantext
+                p
+                    for item in items.text
+                        |  #{item}
+
+- 
+    let offers = {
+        first:{
+            icon:"img/card1.png",
+            title:"Романтична подорож на 2",
+            text:[
+                "Подорож у найромантичніші",
+                "куточки світу, занурить вас у",
+                "дивовижні пейзажі природи."
+            ],
+            price:"2599 грн.",
+            buy:"замовити"
+        },
+        second:{
+            icon:"img/card2.png",
+            title:"Велотур",
+            text:[
+                "Бажаєте прокататись з вітерцем, та",
+                "ще й з критим краєвидом довкола?",
+                "Тоді швидше замовляй велотур!",
+            ],
+            price:"555 грн.",
+            buy:"замовити"
+        },
+        third:{
+            icon:"img/card3.png",
+            title:"На острови!",
+            text:[
+                "Хочеш зануритись у тишу, місце де",
+                "не має натовпу, та панує дмка",
+                "природа? Тоді вперед за пригодами!"
+            ],
+            price:"1559 грн.",
+            buy:"замовити"
+        },
+        fourth:{
+            icon:"img/card4.png",
+            title:"Катання на сьорфінгу",
+            text:[
+                "Хочеш отримати екстрим та мега",
+                "вражень одночасно? Тоді вперед",
+                "ловити хвилі!"
+            ],
+            price:"999 грн",
+            buy:"замовити"
+        }
+    }
+
+mixin news (items) 
+    figcaption 
+        img.offerspic(src=items.icon)
+        .cardcontent
+            .topic.topicof.mt-3
+                h3=items.title 
+            .plantext
+                p
+                    for item in items.text
+                        |  #{item}
+            .low.d-flex.justify-content-between
+                .price 
+                    p
+                        b=items.price
+                .buy 
+                    a(href="#")=items.buy
+
+            

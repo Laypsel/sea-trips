@@ -1,0 +1,606 @@
+@import components/mixin
+@import components/variables
+
+@font-face 
+    font-family: 'Rubik'
+    src: url('../fonts/Rubik-Regular.woff2') format('woff2'), url('../fonts/Rubik-Regular.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+    font-display: swap
+
+@font-face 
+    font-family: 'Rubik'
+    src: url('../fonts/Rubik-Italic.woff2') format('woff2'), url('../fonts/Rubik-Italic.woff') format('woff')
+    font-weight: normal
+    font-style: italic
+    font-display: swap
+
+html,
+body
+    margin: 0
+    font-family: 'Rubik'
+    font-weight: 400
+    background-color: #f5f8fa
+h1
+    font-size: 52px
+    letter-spacing: 1px
+    line-height: 1.5em
+    text-transform: uppercase
+    padding-top: 200px
+    color: $color_white
+    font-weight: 400
+    text-align: center
+    +media(1440)
+        font-size: 72px
+h2,
+.addinfo
+    width: 100%
+    font-size: 30px
+    letter-spacing: 1px
+    text-transform: uppercase
+    color: $color_dark
+    font-weight: 400
+    +media(1024)
+        font-size: 36px
+
+h3
+    font-size: 18px
+hr
+    border: none 
+    border-top: 1px solid #dfe3e6
+figure
+    margin: 0
+.header
+    background: url(../img/header.jpg) no-repeat center / cover
+.container
+    max-width: 1440px
+    margin: 0 auto
+    padding: 0 50px
+.top
+    justify-content: space-between
+    align-items: center
+    ul
+        display: block
+        position: static
+        list-style: none
+    li
+        display: block
+        
+    a
+        text-decoration: none
+.hamburger
+    position: relative
+    width: 30px
+    height: 15px
+    cursor: pointer
+    +media(1024)
+        display: none
+    &.burger_bottom
+       span
+           background-color: $color_orange
+    span
+        content: ""
+        position: absolute
+        width: 30px
+        height: 4px
+        background-color: $color_white
+        border-radius: 5px
+        transition: box-shadow .25s ease-in-out
+        transform: translateY(-50%)
+        &:first-child
+            top: 0
+        &:last-child
+            bottom: 0
+
+.hamburger-open
+    position: fixed
+    z-index: 10
+    right: 50px
+    span
+        background-color: $color_orange
+        &:first-child
+            animation: left .5s ease-in forwards
+            box-shadow: 0 0 5px 2px $color_dgray
+        &:last-child
+            animation: right .7s ease-in forwards
+            box-shadow: 0 0 5px 2px $color_dgray
+            
+@keyframes right
+  0%
+    top: -15px
+    left: 0
+  
+  30%
+    top: -15px
+    left: 75px
+  
+  70%
+    top: -50px
+    left: 75px
+    transform: rotate(-225deg)
+  
+  100%
+    top: 0
+    left: 0
+    transform: rotate(-225deg)
+  
+
+@keyframes left
+  0%
+    top: 15px
+    left: 0
+  
+  30%
+    top: 15px
+    left: -75px
+  
+  70%
+    top: -50px
+    left: -75px
+    transform: rotate(225deg)
+  
+  100%
+    top: 0
+    left: 0
+    transform: rotate(225deg)
+
+.menu
+    display: none
+    a
+        color: $color_white
+    +media(1024)
+        display: flex
+        font-size: 14px
+        letter-spacing: 1px
+        text-transform: uppercase
+        ul
+            display: flex
+            column-gap: 30px
+            list-style: none
+        a
+            display: inline-block
+            color: $color_white
+            text-decoration: none
+            &:hover
+                color: #ffb700
+                
+// .menu_top
+//     display: flex
+//     column-gap: 30px
+//     align-items: center
+//     padding-bottom: 0
+//     ul
+//         margin: 0
+//         padding-left: 0
+//         list-style: none
+//     a
+//         padding: 8px 30px
+//         color: #ffffff
+//         font-weight: 500
+//         display: inline-block
+//         +media(1024)
+//             padding: 15px 20px
+//         +media(1440)
+//             padding: 15px 30px
+.active-burger
+    display: block
+    animation: fadeIn 1s ease
+    position: fixed
+    z-index: 5
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $color_blue
+    overflow: hidden
+    text-align: center
+    ul
+        padding: 100px 0 0
+.welcome
+    position: relative
+    text-align: center
+    &::before,
+    &::after
+        content: ''
+        position: absolute
+        max-width: 370px
+        width: 100%
+        border: 4px solid #ffffff
+        opacity: 0.2
+        transform: translateX(-50%)
+    &::before
+        height: 40px
+        top: 170px
+        border-bottom: none
+    &::after
+        height: 93px
+        bottom: -50px
+        border-top: none
+.text
+    p
+        font-size: 16px
+        line-height: 24px
+        color: $color_white
+        font-weight: 400
+        font-style: italic
+        text-align: center
+.button
+    text-align: center
+    font-style: normal
+    flex-wrap: wrap
+    row-gap: 20px
+    column-gap: 10px
+    a
+        +button
+.box
+    padding: 0 30px
+    +media(1440)
+        padding-left: 215px
+        padding-right: 215px
+.types
+    flex-wrap: wrap
+    column-gap: 30px
+    row-gap: 30px
+    text-align: center
+    +media(1024)
+        flex-wrap: nowrap
+    +media(1440)
+        flex-wrap: nowrap
+.cardcontent
+    padding: 10px 10px
+.addit
+    font-size: 16px
+    line-height: 24px
+    color: $color_dark
+    font-weight: 400
+    font-style: italic
+    text-align: center
+    p
+        font-size: 14px
+        text-align: left
+.dnArrow
+    display: block
+    width: 18px
+    height: 20px
+    left: 0
+    margin: 0 auto
+    cursor: pointer
+    &::before
+        content: ""
+        width: 18px
+        height: 20px
+        position: absolute
+        background-image: url(../img/twoarrows.png)
+.cards
+    &:hover
+        background-color: $color_white
+        box-shadow: 0px 4px 10.5px rgba(3,20,31,0.05)
+.plans
+    text-align: center
+.choose
+    position: relative
+    &::before
+        content: ""
+        position: absolute
+        width: 60px
+        height: 60px
+        top: 0
+        left: 0
+        z-index: 2
+        background-image: url(../img/mark.png)
+.offerspic
+    width: 100%
+    height: 190px
+    object-fit: cover
+.topic,
+.topicof
+    font-size: 12px
+    line-height: 26px
+    color: $color_dark
+    font-weight: 400
+    text-align: left
+// .topicof
+//     font-size: 12px
+//     text-align: left
+.price
+    font-size: 24px
+    line-height: 44px
+    color: $color_blue
+    font-weight: 400
+    text-align: center
+    +media(1024)
+        font-size: 17px
+    +media(1440)
+        font-size: 24px
+    p
+        margin-bottom: 0
+.buy
+    position: relative
+    text-align: center
+    padding: 10px 20px 0 25px
+    a
+        text-decoration: none
+        color: $color_orange
+    &::after
+        content: ""
+        position: absolute
+        width: 11px
+        height: 11px
+        top: 18px
+        right: 0
+        background-image: url(../img/arrow_orange.png)
+.blueplan
+    font-size: 12px
+    position: relative
+    text-align: center
+    text-decoration: none
+    &::after
+        content: ""
+        position: absolute
+        width: 11px
+        height: 11px
+        top: 3px
+        right: -17px
+        background-image: url(../img/arrow_blue.png)
+.plantext
+    font-size: 13px
+    line-height: 19px
+    color: $color_lgray
+    font-weight: 400
+    text-align: start
+    p
+        margin-bottom: 0
+.news
+    flex-wrap: wrap
+    column-gap: 23px
+    img
+        width: 100%
+        object-fit: cover
+    +media(768)
+        justify-content: space-between
+    +media(1024)
+        flex-wrap: nowrap
+.about
+    text-align: left
+    h2
+        font-size: 30px
+        letter-spacing: 0
+        +media(1440)
+            font-size: 36px
+.ourcompany
+    max-width: 450px
+    +media(768)
+        max-width: 100%
+.adapt
+    width: 100%
+    +media(768)
+        width: 45%
+    +media(1024)
+        width: 43%
+.cardsdetails
+    flex-wrap: wrap
+    column-gap: 40px
+    +media(1024)
+        flex-wrap: nowrap
+.info
+    flex-wrap: wrap
+    column-gap: 26px
+    +media(768)
+        flex-wrap: nowrap
+    +media(1024)
+        flex-wrap: wrap
+        row-gap: 20px
+    +media(1440)
+        flex-wrap: nowrap
+.aside
+    background-color: #edf2f5
+.idea
+    background: url(../img/advertizing.jpg) no-repeat center / cover
+    flex-wrap: wrap
+    column-gap: 15px
+    row-gap: 20px
+    padding-top: 100px
+    padding-bottom: 113px
+    +media(768)
+        flex-wrap: nowrap
+.wave
+    h2,
+    p
+        color: $color_white
+    h2
+        font-size: 26px
+        letter-spacing: 1px
+        line-height: 44px
+        text-transform: uppercase
+        font-weight: 400
+        +media(375)
+            font-size: 30px
+    span
+        display: block
+        color: $color_blue
+    +media(1440)
+        h2
+            font-size: 56px
+            letter-spacing: 2px
+            line-height: 55px
+    .sizefile
+        font-size: 13px
+        margin-bottom: 18px
+        color: $color_dgray
+.explain
+    position: relative
+    text-align: center
+    span
+        position: absolute
+        width: 42px
+        height: 37px
+        top: 0
+        background-image: url(../img/comas.png)
+        transform: translate(-50%,-50%)
+    &::before,
+    &::after
+        content: ''
+        position: absolute
+        max-width: 370px
+        height: 100%
+        width: 27%
+        border: 4px solid #ffffff
+        opacity: 0.2
+    &::before
+        top: 0
+        left: 10px
+        border-right: none
+    &::after
+        top: 0
+        right: 10px
+        border-left: none
+    img
+        position: absolute
+        transform: translate(-50%,50%)
+        bottom: 0
+        border-radius: 50%
+.client
+    color: $color_lgray
+.special
+    h2
+        text-align: center
+.offers
+    figure
+        //width: 270px
+.bike
+    position: relative
+    &::after
+        content: ""
+        position: absolute
+        width: 60px
+        height: 190px
+        left: 0
+        top: 0
+        z-index: 1
+        background-image: url(../img/bike.png)
+.also
+    width: 100%
+    flex-wrap: wrap
+    column-gap: 30px
+    row-gap: 30px
+    figure
+        padding: 25px 20px 30px
+        +media(768)
+            width: 47%
+        +media(1024)
+            width: 30%
+    +media(1440)
+        padding-top: 104px
+        flex-wrap: nowrap
+        figure
+            width: 100%
+    
+.hotel
+    background: url(../img/hotel.png) no-repeat center / cover
+.restaurant
+    background: url(../img/restaurant.png) no-repeat center / cover
+.filecard
+    position: relative
+    &::before
+        content: ""
+        position: absolute
+        width: 34px
+        height: 42px
+        left: 20px
+        background-image: url(../img/file.png)
+.exelfile
+    p
+        padding-left: 71px
+.graphfile
+    font-size: 18px
+    margin-bottom: 12px
+.downloadbutton
+    a
+        position: relative
+        font-size: 12px
+        letter-spacing: 1px
+        text-transform: uppercase
+        text-decoration: none 
+        font-weight: 400
+        text-align: center
+        border-radius: 16px
+        background-color: transparent
+        color: $color_orange
+        border: 2px solid $color_orange
+        text-decoration: none
+        padding: 6px 13px 6px 31px
+        &::before
+            content: ""
+            position: absolute
+            width: 15px
+            height: 11px
+            top: 7px
+            left: 9px
+            background-image: url(../img/cloud.png)
+.tel
+    position: relative
+    text-decoration: none
+    &::before
+        content: ""
+        position: absolute
+        width: 16px
+        height: 17px
+        top: -1px
+        left: -25px
+        background: url(../img/phone.png) no-repeat
+.questions
+    width: 100%
+    position: relative
+    text-align: center
+    padding-top: 30px
+    +media(1024)
+        width: 30%
+    +media(1440)
+        width: 100%
+        
+    &::before,
+    &::after
+        content: ''
+        position: absolute
+        max-width: 370px
+        height: 100%
+        width: 27%
+        border: 4px solid $color_orange
+    &::before
+        top: 0
+        left: -5px
+        border-right: none
+    &::after
+        top: 0
+        right: -5px
+        border-left: none
+    img
+        position: absolute
+        transform: translate(-50%,50%)
+        bottom: 0
+        border-radius: 50%
+.askquest
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    top: -12px
+.textquest
+    max-width: 150px
+    margin: 0 auto
+.consultant
+    padding-bottom: 55px
+    a
+        display: inline-block
+.island
+    height: 400px
+    background: url(../img/footer.jpg) no-repeat center top / cover
+.copyright
+    width: 100%
+    height: 25px
+    background-color: #1a1a1a
+    p
+        font-size: 13px
+        line-height: 19px
+        color: $color_white
+        font-weight: 400
+        text-align: center
